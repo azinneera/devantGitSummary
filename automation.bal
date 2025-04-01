@@ -13,8 +13,7 @@ public function main() returns error? {
         }
         github:Issue[] githubIssue = check githubClient->/repos/[orgname]/[reponame]/issues.get();
         string issueCount = "Total issue count: " + githubIssue.length().toString();
-        log:printInfo("Issue count:" + issueCount);
-        check email->sendMessage({to: "asmaj@wso2.com", subject: "Github summary", body: "Issue count: " + issueCount});
+        log:printInfo("Issue count: " + issueCount);
 
     } on fail error e {
         log:printError("Error occurred", 'error = e);
